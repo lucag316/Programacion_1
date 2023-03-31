@@ -1,4 +1,5 @@
-# 1.	Un bar nos contrato para administrar el consumo de los clientes en las distintas mesas del local. Para esto debemos desarrollar un algoritmo que nos permita el ingreso de los siguientes datos:
+# EJERCICIO 1.	
+# Un bar nos contrato para administrar el consumo de los clientes en las distintas mesas del local. Para esto debemos desarrollar un algoritmo que nos permita el ingreso de los siguientes datos:
 
 # a.	Nombre del cliente
 # b.	Tipo de bebida (validar cerveza, limonada, gaseosa, nada)
