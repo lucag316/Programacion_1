@@ -24,9 +24,6 @@ respuesta = "si"
 
 cantidad_clientes = 0
 
-tipo_comida_mas_vendida = ""
-tipo_bebida_mas_vendida = ""
-
 cantidad_bebida = 0
 cantidad_comida = 0
 
@@ -39,6 +36,7 @@ cantidad_hamburguesa = 0
 cantidad_rabas = 0
 
 cantidad_solo_bebida = 0
+cantidad_solo_comida = 0
 
 
 while respuesta == "si":
@@ -69,6 +67,8 @@ while respuesta == "si":
 
     if (comida == "nada" and bebida != "nada"):
         cantidad_solo_bebida += 1
+    elif(comida != "nada" and bebida == "nada"):
+        cantidad_solo_comida += 1
         
     cantidad_clientes += 1
 
@@ -103,9 +103,16 @@ if (cantidad_solo_bebida == 0):
 else:
     promedio_solo_bebida = cantidad_clientes / cantidad_solo_bebida
 
-print("Comida mas vendida: {0} \nBebida mas vendida: {1}".format(mensaje_comida, mensaje_bebida))
-print("El promedio que solo ordena bebida: {0}".format(promedio_solo_bebida))
+if (cantidad_solo_comida == 0):
+    gente_solo_comida = "No hay"
+else:
+    gente_solo_comida = cantidad_solo_comida
 
-# b.	El promedio de clientes que ordena solamente bebida.
-# c.	Calcular la recaudación bruta y recaudación neta del local.
-# d.	Cuánta gente ordenó comida pero no bebida.
+recaudacion_bruta = cantidad_cerveza * 500 + cantidad_limonada * 300 + cantidad_gaseosa * 250 + cantidad_papitas * 1200 + cantidad_hamburguesa * 2000 + cantidad_rabas * 1800
+
+recaudacion_neta = recaudacion_bruta - recaudacion_bruta * 0.21  #IVA, pensado como empresa, no como consumidor
+
+print("\nComida mas vendida: {0} \nBebida mas vendida: {1}".format(mensaje_comida, mensaje_bebida))
+print("El promedio que solo ordena bebida: {0}".format(promedio_solo_bebida))
+print("La recaudacion bruta es: ${0} \nLa recaudacion neta es: ${1}".format(recaudacion_bruta, recaudacion_neta))
+print("Cantidad de personas que solo ordenan comida: {0}\n".format(gente_solo_comida))
