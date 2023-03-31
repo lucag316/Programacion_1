@@ -16,7 +16,7 @@
 respuesta = "si"
 
 bandera_drama_mas_barato = False
-drama_mas_barato = 10000000000            #HABIA UNA FORMA MEJOR
+#drama_mas_barato = 10000000000            #HABIA UNA FORMA MEJOR
 #importe_drama_mas_barato = None  CREO QUE NO VA
 #titulo_drama_mas_barato = ""    CREO QUE NO VA
 
@@ -61,7 +61,7 @@ while respuesta == "si":
 
     elif genero == "drama":
         cantidad_drama += 1
-        if importe < drama_mas_barato or bandera_drama_mas_barato == False: 
+        if importe < importe_drama_mas_barato or bandera_drama_mas_barato == False: 
             titulo_drama_mas_barato = titulo
             importe_drama_mas_barato = importe
             bandera_drama_mas_barato = True
