@@ -5,3 +5,9 @@
 # descripción (Sacar la información de las diapositivas de las reglas de estilo).
 # En caso de que ingrese un numero fuera del rango deberá mostrarle al usuario “Error,
 # regla de estilo inexistente”
+
+respuesta = "si"
+
+while respuesta == "si":
+    
+    respuesta = input("[si] para continuar \n[otra tecla] para salir \n")

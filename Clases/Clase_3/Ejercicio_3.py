@@ -15,3 +15,57 @@
 # C. Nombre del votante más joven que votó a Nacho.
 # D. Nombre de cada participante y porcentaje de los votos qué recibió.
 # E. El nombre del participante que ganó el reality (El que tiene más votos)
+
+respuesta = "si"
+
+#cantidad_votantes = 0
+cantidad_femeninos = 0
+masculinos_especiales = 0
+
+edades_femenino = 0
+
+promedio_edad_femenino = 0
+
+while respuesta == "si":
+    nombre = input("Ingrese el nombre del votante: ")
+    while nombre == "":
+        nombre = input("ERROR, reingrese el nombre del votante: ")
+
+    edad = int(input("Ingrese la edad del votante [+13]: "))
+    while edad < 13:
+        edad = int(input("ERROR, reingrese la edad del votante [+13]: "))
+    
+    genero = input("Ingrese el genero del votante [masculino], [femenino], [otro]: ")
+    while genero != "masculino" and genero !="femenino" and genero != "otro":
+        genero = input("ERROR, reingrese el genero del votante [masculino], [femenino], [otro]: ")
+    
+    participante_votado = input("Ingrese el nombre del participante [nacho], [julieta], [marcos]: ")
+    while participante_votado != "nacho" and participante_votado != "julieta" and participante_votado != "marcos":
+        participante_votado = input("ERROR, reingrese el nombre del participante [nacho], [julieta], [marcos]: ")
+
+
+    if genero == "femenino":
+        cantidad_femeninos += 1
+        edades_femenino += edad
+
+    elif genero == "masculino":
+        if edad > 24 and edad < 41:
+            if participante_votado == "nacho" or participante_votado == "julieta":
+                masculinos_especiales += 1
+
+    
+    respuesta = input("[si] para continuar \n[otra tecla] para salir")
+        #cantidad_votantes += 1
+
+promedio_edad_femenino = edades_femenino / cantidad_femeninos
+
+print("El promedio de edad de las votantes de género femenino es: {0}".format(promedio_edad_femenino))
+print("Cantidad de personas de género masculino entre 25 y 40 años que votaron a Nacho o : {0}".format(masculinos_especiales))
+print("".format())
+
+
+# C. Nombre del votante más joven que votó a Nacho.
+
+# D. Nombre de cada participante y porcentaje de los votos qué recibió.
+
+# E. El nombre del participante que ganó el reality (El que tiene más votos)
