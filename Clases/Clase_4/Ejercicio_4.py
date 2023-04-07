@@ -14,3 +14,4 @@
 # o Cantidad y porcentaje de abstenciones.
 # o Generar una lista de senadores por cada tipo de voto y mostrarlas por
 # pantalla.
+
