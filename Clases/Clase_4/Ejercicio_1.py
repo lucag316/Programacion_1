@@ -5,3 +5,6 @@
 # marca, el año del modelo y el precio (validar los tipos de datos ingresados) y
 # mostrarlos por pantalla en forma secuencial y ordenada. Realizar el ejercicio sin usar
 # listas primero, y despues usando listas y comparar la composición del código.
+
+
+
