@@ -17,3 +17,7 @@
 # C. Informar el tipo de alimento más caro.
 
 # D. El promedio de precio por kilo en total.
+
+
+
+for compra
