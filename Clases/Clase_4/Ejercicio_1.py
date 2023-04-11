@@ -10,7 +10,12 @@ lista_auto = []
 
 
 
+respuesta = "si"
 
+while respuesta == "si":
+    
+    
+    respuesta = input("[si] para continuar \n[otra tecla] para salir\n")
 
 # respuesta = "si"
 
