@@ -67,29 +67,46 @@
 #-------------------------------EJERCICIO 2----------------------------------------------------
 
 #-------------------------------EJERCICIO 3----------------------------------------------------
-lista_numeros = []
+# lista_numeros = []
 
-respuesta = "si"
+# #respuesta = "si"
 
-while respuesta == "si":
-    numero_ingresado = int(input("Ingrese un numeros enteros y un negativo al final: "))
+# acumulador_numeros = 0
+
+# while True:
+#     numero_ingresado = int(input("Ingrese un numeros enteros y un negativo para terminar: "))
+#     acumulador_numeros += numero_ingresado
     
-    lista_numeros.append(numero_ingresado)
+#     if numero_ingresado >= 0:
+#         lista_numeros.append(numero_ingresado)
+#     else:
+#         lista_numeros.append(numero_ingresado)
+#         break
+#     #respuesta = input("[si] para continuar \n[otra tecla] para salir \n")
+# print(f"total: {acumulador_numeros}")
+# #print(lista_numeros)
 #-------------------------------EJERCICIO 3----------------------------------------------------
 
-# 3 Crea una lista vacía y pide al usuario que ingrese números enteros hasta que ingrese un número negativo. Luego, muestra la suma de todos los números ingresados.
-
-
 #-------------------------------EJERCICIO 4----------------------------------------------------
+lista_palabras = []
+
+while True:
+    palabra_ingresada = input("Ingrese una palabra: ")
+    
 #-------------------------------EJERCICIO 4----------------------------------------------------
-
-#-------------------------------EJERCICIO 5----------------------------------------------------
-#-------------------------------EJERCICIO 5----------------------------------------------------
-
-#-------------------------------EJERCICIO 6----------------------------------------------------
-#-------------------------------EJERCICIO 6----------------------------------------------------
 
 
 # 4 Crea una lista vacía y pide al usuario que ingrese una palabra. Luego, muestra la primera letra de la palabra. Repite este proceso hasta que el usuario ingrese una palabra que comience con la letra "z".
 
+#-------------------------------EJERCICIO 5----------------------------------------------------
+#-------------------------------EJERCICIO 5----------------------------------------------------
+
+
 # 5 Crea una lista con los nombres de 5 ciudades y luego imprime el último elemento de la lista.
+
+
+#-------------------------------EJERCICIO 6----------------------------------------------------
+#-------------------------------EJERCICIO 6----------------------------------------------------
+
+
+
