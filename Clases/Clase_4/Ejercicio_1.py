@@ -6,16 +6,29 @@
 # mostrarlos por pantalla en forma secuencial y ordenada. Realizar el ejercicio sin usar
 # listas primero, y despues usando listas y comparar la composición del código.
 
+lista_autos = []
 lista_auto = []
-
-
 
 respuesta = "si"
 
 while respuesta == "si":
+    marca = input("Ingrese marca: ")
+    while marca == "":
+        marca = input("ERROR, reingrese la marca del auto: ")
+    lista_auto.append(marca)
     
+    año_modelo = int(input("Ingrese el año del modelo: "))
+    while año_modelo < 1900 or año_modelo > 2023:
+        año_modelo = int(input("ERROR, reingrese el año del modelo: "))
+    lista_auto.append(año_modelo)
     
+    precio = float(input("Ingrese el precio del auto: "))
+    while precio < 0:
+        precio = float(input("ERROR, reingrese el precio del auto: "))
+    lista_auto.append(precio)
+    #lista_autos.append(lista_auto)
     respuesta = input("[si] para continuar \n[otra tecla] para salir\n")
+print(lista_auto)
 
 # respuesta = "si"
 

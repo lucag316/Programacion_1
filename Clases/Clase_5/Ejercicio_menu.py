@@ -16,7 +16,7 @@
 # Para utilizar las opciones 2 a la 10 hay que cargar los números en la opción 1
 # Si se vacía la lista con la opción 10 se deben bloquear nuevamente las opciones hasta que se
 # cargue de nuevo los números con la opción 1
-# import os
+import os
 
 lista_numeros = [5, 4, 5, 4, 0]
 lista_indices = []
@@ -30,9 +30,7 @@ contador_negativos = 0
 contador_ceros = 0
 
 bandera_numero = False
-# for i in range(3):
-#     numero_appendeado= int(input("Ingrese un numero a la lista: "))
-#     lista_numeros.append(numero_appendeado)
+
     
 menor = lista_numeros[0]
 mayor = lista_numeros[0]
@@ -84,59 +82,65 @@ for numero in lista_numeros:
 
 promedio_numeros = acumulador_numeros / cantidad_numeros
 
-lista_vacia = lista_numeros.clear()
-print(acumulador_numeros)
-print(promedio_numeros)
-print(mayor)
-print(menor)
-print(f"pares {contador_pares}    |   impares: {contador_impares}")
-print(f"positivos: {contador_positivos}  | negativos: {contador_negativos}    | ceros: {contador_ceros}")
-print(f"lista vacia: {lista_vacia}")
-print(f"indices en los que aparece: {lista_indices}")
+# lista_vacia = lista_numeros.clear()
+# print(acumulador_numeros)
+# print(promedio_numeros)
+# print(mayor)
+# print(menor)
+# print(f"pares {contador_pares}    |   impares: {contador_impares}")
+# print(f"positivos: {contador_positivos}  | negativos: {contador_negativos}    | ceros: {contador_ceros}")
+# print(f"lista vacia: {lista_vacia}")
+# print(f"indices en los que aparece: {lista_indices}")
 
 
 
 bandera_numeros_cargados = False
 
 while True:
+    os.system("cls")
+    print("***MENU DE OPCIONES***")
+    print("-----------------------")
     print("1- Carga una lista con 10 numeros \n2- Muestra el total de los numeros ingresados \n3- Muestra el promedio n\4- Muestra el numero mayor n\5- Muestra el numero menor n\6- Pide un numero y dice si esta en la lista \n7- Pide un numero e informa todos los índices donde aparece \n8- Informa cuantos numeros pares e impares hay en la lista \n9- Informa cuantos positivos, negativos y veros hay en la lista \n10- Vacia la lista \n11- Salir")
     
     opcion = int(input("Elija una opcion: "))
     
     if opcion == 1:
         bandera_numeros_cargados = True
-        if opcion == 2:
-            if bandera_numeros_cargados == True:
-                pass
-            else:
-                print("Primero debes cargar los numeros en la opcion 1")
-        elif opcion == 3:
-            if bandera_numeros_cargados == True:
-                pass
-            else:
-                print("Primero debes cargar los numeros en la opcion 1")
-        elif opcion == 4:
-            if bandera_numeros_cargados == True:
-                pass
-            else:
-                print("Primero debes cargar los numeros en la opcion 1")
-        elif opcion == 5:
+        for i in range(3):
+            numero_appendeado= int(input("Ingrese un numero a la lista: "))
+            lista_numeros.append(numero_appendeado)
+    elif opcion == 2:
+        if bandera_numeros_cargados:
             pass
-        elif opcion == 6:
+        else:
+            print("Primero debes cargar los numeros en la opcion 1")
+    elif opcion == 3:
+        if bandera_numeros_cargados:
             pass
-        elif opcion == 7:
+        else:
+            print("Primero debes cargar los numeros en la opcion 1")
+    elif opcion == 4:
+        if bandera_numeros_cargados:
             pass
-        elif opcion == 8:
-            pass
-        elif opcion == 9:
-            pass
-        elif opcion == 10:
-            pass
+        else:
+            print("Primero debes cargar los numeros en la opcion 1")
+    elif opcion == 5:
+        pass
+    elif opcion == 6:
+        pass
+    elif opcion == 7:
+        pass
+    elif opcion == 8:
+        pass
+    elif opcion == 9:
+        pass
+    elif opcion == 10:
+        pass
     elif opcion == 11:
-        salir = input("[s] para salir \n [otra tecla] para cancelar\n")
+        salir = input("[s] para salir \n[otra tecla] para cancelar\n")
         if salir == "s":
             break
-
+    os.system("pause")
 
 # # 1 cargar una lista con 10 números
 # # 2 mostrar el total de los números ingresados
