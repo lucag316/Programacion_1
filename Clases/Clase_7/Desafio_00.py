@@ -14,3 +14,5 @@
 # I. Ordenar el código implementando una función para cada uno de los valores
 # informados.
 # J. Construir un menú que permita elegir qué dato obtener
+from data_stark import lista_personajes
+

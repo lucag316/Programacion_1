@@ -2,7 +2,7 @@ personas = [
     {"id": 1, "nombre": "Dalis", "apellido": "Leindecker",
         "email": "dleindecker0@netscape.com", "genero": "M", "edad": 19},
     {"id": 2, "nombre": "Sebastiano", "apellido": "Jakoubec",
-     "email": "sjakoubec1@yahoo.co.jp", "genero": "M", "edad": 28},
+        "email": "sjakoubec1@yahoo.co.jp", "genero": "M", "edad": 28},
     {"id": 3, "nombre": "Tera", "apellido": "Tomasicchio",
      "email": "ttomasicchio2@photobucket.com", "genero": "F", "edad": 64},
     {"id": 4, "nombre": "Cicely", "apellido": "Barnish",
@@ -98,5 +98,3 @@ personas = [
     {"id": 49, "nombre": "Leshia", "apellido": "Urvoy",
      "email": "lurvoy1c@netvibes.com", "genero": "F", "edad": 28},
     {"id": 50, "nombre": "Briana", "apellido": "Woodroof", "email": "bwoodroof1d@wix.com", "genero": "F", "edad": 64}]
-
-
