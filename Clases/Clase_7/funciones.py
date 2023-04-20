@@ -100,7 +100,8 @@ def calcular_promedio(lista_personajes:list) -> float:
 
 #----------------------G-----------------------------------
 def calcular_nombre_anteriores():
-    print("Mas alto: {} \nMas bajo: {}".format(mas_alto["nombre"], mas_bajo["nombre"]))
+    #print("Mas alto: {} \nMas bajo: {}".format(mas_alto["nombre"], mas_bajo["nombre"]))
+    pass
 #----------------------G-----------------------------------
 
 #----------------------H-----------------------------------
