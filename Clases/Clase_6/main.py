@@ -20,3 +20,5 @@ for persona in personas:
 for persona in personas:
     if persona["edad"] == persona_mayor["edad"]:
         print(persona)
+
+# ESTE CODIGO SIRVE PARA IMPRIMIR LA EDAD MAYOR, Y SI HAY EMPATE IMPRIME TODOS LOS QUE TIENEN ESA EDAD

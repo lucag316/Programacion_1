@@ -17,5 +17,7 @@ for i in range(len(lista_notas_1)):
     print(f"  {lista_notas_1[i]:2d}          {lista_notas_2[i]:2d}          {promedios[i]:5.2f}") 
 
 #  El 2f es la cantidad de numeros que quiero despues de la coma (2 decimales, osea 2 numeros despues del punto)(el 5 es, que quiero que tanga un ancho de 5)
-
 # El 2d, le estoy diciendo, mostramelo con 2 cifras (2 enteros)
+# pondria 02d si quiero que aparezca por ejemplo asi 04
+
+# PODRIA AGREGAR LISTAS DE LEGAJOS O NOMBRE O ALGO
