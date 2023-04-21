@@ -38,48 +38,54 @@ def normalizar_datos(lista_personajes:list):
         personaje["fuerza"] = int(personaje["fuerza"])
 normalizar_datos(lista_personajes)
 
-#----------------------A-----------------------------------
+def mostrar_personaje(personaje:dict):
+    '''
+    Muestra prolijamente el personaje que recibe
+    '''
+    print("\nNombre: {0} \nIdentidad: {1} \nEmpresa: {2} \nAltura: {3} \nPeso: {4} \nGenero: {5} \nColor de ojos: {6} \nColor de pelo: {7} \nFuerza: {8} \nInteligencia: {9}\n".format(personaje["nombre"], personaje["identidad"], personaje["empresa"], personaje["altura"], personaje["peso"], personaje["genero"], personaje["color_ojos"], personaje["color_pelo"], personaje["fuerza"], personaje["inteligencia"]))
+
+#--------------------------------------------*** PUNTO A ***--------------------------------------------------------
 def imprimir_masculinos(lista_heroes:list):
     for heroe in lista_heroes:
         if heroe["genero"] == "M":
             print("Nombre: {0}".format(heroe["nombre"]))
-#----------------------A-----------------------------------
+#--------------------------------------------*** PUNTO A ***--------------------------------------------------------
 
-#----------------------B-----------------------------------
+#--------------------------------------------*** PUNTO B ***--------------------------------------------------------
 def imprimir_femeninos(lista_heroes:list):
     for heroe in lista_heroes:
         if heroe["genero"] == "F":
             print("Nombre: {0}".format(heroe["nombre"]))
-#----------------------B-----------------------------------
+#--------------------------------------------*** PUNTO B ***--------------------------------------------------------
 
-#----------------------C-----------------------------------
+#--------------------------------------------*** PUNTO C ***--------------------------------------------------------
 def calcular_mayor_masculino(lista_heroes:list) -> dict:
     masculino_mayor_altura = lista_heroes[0]
     for heroe in lista_heroes:
         if heroe["genero"] == "M" and heroe["altura"] > masculino_mayor_altura["altura"]:
             masculino_mayor_altura = heroe
     return masculino_mayor_altura
-#----------------------C-----------------------------------
+#--------------------------------------------*** PUNTO C ***--------------------------------------------------------
 
-#----------------------D-----------------------------------
+#--------------------------------------------*** PUNTO D ***--------------------------------------------------------
 def calcular_mayor_femenino(lista_heroes:list):
     femenino_mayor_altura = lista_heroes[0]
     for heroe in lista_heroes:
         if heroe["genero"] == "F" and heroe["altura"] > femenino_mayor_altura["altura"]:
             femenino_mayor_altura = heroe
     return femenino_mayor_altura
-#----------------------D-----------------------------------
+#--------------------------------------------*** PUNTO D ***--------------------------------------------------------
 
-#----------------------E-----------------------------------
+#--------------------------------------------*** PUNTO E ***--------------------------------------------------------
 def calcular_menor_masculino(lista_heroes:list):
     masculino_menor_altura = lista_heroes[0]
     for heroe in lista_heroes:
         if heroe["genero"] == "M" and heroe["altura"] < masculino_menor_altura["altura"]:
             masculino_menor_altura = heroe
     return masculino_menor_altura
-#----------------------E-----------------------------------
+#--------------------------------------------*** PUNTO E ***--------------------------------------------------------
 
-#----------------------F-----------------------------------
+#--------------------------------------------*** PUNTO F ***--------------------------------------------------------
 def calcular_menor_femenino(lista_heroes:list):
     #femenino_menor_altura = lista_heroes[0]      #NO FUNCIONA PORQUE EL PRIMERO DE LA LISTA ES MASCULINO
     bandera_femenino_menor = False
@@ -87,9 +93,9 @@ def calcular_menor_femenino(lista_heroes:list):
         if heroe["genero"] == "F" and heroe["altura"] < femenino_menor_altura["altura"]:
             femenino_menor_altura = heroe
     return femenino_menor_altura
-#----------------------F-----------------------------------
+#--------------------------------------------*** PUNTO F ***--------------------------------------------------------
 
-#----------------------G-----------------------------------
+#--------------------------------------------*** PUNTO G ***--------------------------------------------------------
 def Calcular_promedio_altura_masculino(lista_heroes:list) -> float:
     cantidad_masculinos = 0
     acumulador_alturas_m = 0
@@ -101,9 +107,9 @@ def Calcular_promedio_altura_masculino(lista_heroes:list) -> float:
             cantidad_masculinos += 1
     promedio_altura_m = acumulador_alturas_m / cantidad_masculinos
     return promedio_altura_m
-#----------------------G-----------------------------------
+#--------------------------------------------*** PUNTO G ***--------------------------------------------------------
 
-#----------------------H-----------------------------------
+#--------------------------------------------*** PUNTO H ***--------------------------------------------------------
 def Calcular_promedio_altura_femenino(lista_heroes:list) -> float:
     cantidad_femeninos = 0
     acumulador_alturas_f = 0
@@ -115,37 +121,38 @@ def Calcular_promedio_altura_femenino(lista_heroes:list) -> float:
             cantidad_femeninos += 1
     promedio_altura_f = acumulador_alturas_f / cantidad_femeninos
     return promedio_altura_f
-#----------------------H-----------------------------------
+#--------------------------------------------*** PUNTO H ***--------------------------------------------------------
 
-#----------------------I-----------------------------------
-#----------------------I-----------------------------------
+#--------------------------------------------*** PUNTO I ***--------------------------------------------------------
+#--------------------------------------------*** PUNTO I ***--------------------------------------------------------
 
-#----------------------J-----------------------------------
-#----------------------J-----------------------------------
-
-#----------------------K-----------------------------------
-#----------------------K-----------------------------------
-
-#----------------------L-----------------------------------
-#----------------------L-----------------------------------
-# Agregar al código elaborado para cumplir el desafío #00 los siguientes puntos,
-# utilizando un menú que permita acceder a cada uno de los puntos por separado.
-
-
-# I. Informar cual es el Nombre del superhéroe asociado a cada uno de los
-# indicadores anteriores (ítems C a F)
+#--------------------------------------------*** PUNTO J ***--------------------------------------------------------
+def Calcular_tipo_ojos(lista_heroes:list):
+    pass
+    # for heroe in lista_heroes:
+    #     match (heroe["color_ojos"]):
+    #         case "Silver":
+    #             pass
+    #         case "Green":
+    #             pass
+    #         case "Yellow":
+    #             pass
+#--------------------------------------------*** PUNTO J ***--------------------------------------------------------
 # J. Determinar cuántos superhéroes tienen cada tipo de color de ojos.
-# K. Determinar cuántos superhéroes tienen cada tipo de color de pelo.
-# L. Determinar cuántos superhéroes tienen cada tipo de inteligencia (En caso de
-# no tener, Inicializarlo con ‘No Tiene’).
-# M. Listar todos los superhéroes agrupados por color de ojos.
-# N. Listar todos los superhéroes agrupados por color de pelo.
-# O. Listar todos los superhéroes agrupados por tipo de inteligencia
+#--------------------------------------------*** PUNTO K ***--------------------------------------------------------
+#--------------------------------------------*** PUNTO K ***--------------------------------------------------------
 
+#--------------------------------------------*** PUNTO L ***--------------------------------------------------------
+#--------------------------------------------*** PUNTO L ***--------------------------------------------------------
 
+#--------------------------------------------*** PUNTO M ***--------------------------------------------------------
+#--------------------------------------------*** PUNTO M ***--------------------------------------------------------
 
+#--------------------------------------------*** PUNTO N ***--------------------------------------------------------
+#--------------------------------------------*** PUNTO N ***--------------------------------------------------------
 
-
+#--------------------------------------------*** PUNTO O ***--------------------------------------------------------
+#--------------------------------------------*** PUNTO O ***--------------------------------------------------------
 
 
 

@@ -1,3 +1,19 @@
+# Desafío #00:
+
+# A. Analizar detenidamente el set de datos
+# B. Recorrer la lista imprimiendo por consola el nombre de cada superhéroe
+# C. Recorrer la lista imprimiendo por consola nombre de cada superhéroe junto a
+# la altura del mismo
+# D. Recorrer la lista y determinar cuál es el superhéroe más alto (MÁXIMO)
+# E. Recorrer la lista y determinar cuál es el superhéroe más bajo (MÍNIMO)
+# F. Recorrer la lista y determinar la altura promedio de los superhéroes
+# (PROMEDIO)
+# G. Informar cual es el Nombre del superhéroe asociado a cada uno de los
+# indicadores anteriores (MÁXIMO, MÍNIMO)
+# H. Calcular e informar cual es el superhéroe más y menos pesado.
+# I. Ordenar el código implementando una función para cada uno de los valores
+# informados.
+# J. Construir un menú que permita elegir qué dato obtener
 from data_stark_00 import lista_personajes
 import os
 
@@ -13,7 +29,34 @@ def normalizar_datos(lista_personajes:list):
         personaje["peso"] = float(personaje["peso"])
         personaje["fuerza"] = int(personaje["fuerza"])
 normalizar_datos(lista_personajes)
-#----------------------A-----------------------------------
+
+def mostrar_personaje(personaje:dict):
+    '''
+    Muestra prolijamente el personaje que recibe
+    '''
+    print("""
+    Nombre: {0} 
+    Identidad: {1} 
+    Empresa: {2} 
+    Altura: {3} 
+    Peso: {4} 
+    Genero: {5} 
+    Color de ojos: {6} 
+    Color de pelo: {7} 
+    Fuerza: {8} 
+    Inteligencia: {9}
+    """.format(personaje["nombre"], 
+            personaje["identidad"],
+            personaje["empresa"], 
+            personaje["altura"], 
+            personaje["peso"], 
+            personaje["genero"], 
+            personaje["color_ojos"], 
+            personaje["color_pelo"], 
+            personaje["fuerza"], 
+            personaje["inteligencia"]))
+
+#--------------------------------------------*** PUNTO A ***--------------------------------------------------------
 def analizar_datos(lista_personajes: list):
     """
     Recibe una lista
@@ -21,10 +64,10 @@ def analizar_datos(lista_personajes: list):
     La recorre e imprime todos los elementos
     """
     for personaje in lista_personajes:
-        print(personaje)
-#----------------------A-----------------------------------
+        print(mostrar_personaje(personaje))
+#--------------------------------------------*** PUNTO A ***--------------------------------------------------------
 
-#----------------------B-----------------------------------
+#--------------------------------------------*** PUNTO B ***--------------------------------------------------------
 def imprimir_nombres(lista_personajes:list):
     """
     Recibe una lista
@@ -33,9 +76,9 @@ def imprimir_nombres(lista_personajes:list):
     """
     for personaje in lista_personajes:
         print(personaje["nombre"])
-#----------------------B-----------------------------------
+#--------------------------------------------*** PUNTO B ***--------------------------------------------------------
 
-#----------------------C-----------------------------------
+#--------------------------------------------*** PUNTO C ***--------------------------------------------------------
 def imprimir_nombres_alturas(lista_personajes:list):
     """
     Recibe una lista
@@ -45,10 +88,10 @@ def imprimir_nombres_alturas(lista_personajes:list):
     for personaje in lista_personajes:
         nombre = personaje["nombre"]
         altura = personaje["altura"]
-        print(f"Nombre: {nombre}    |   Altura: {altura}")
-#----------------------C-----------------------------------
+        print(f"Nombre: {nombre}| Altura: {altura}")
+#--------------------------------------------*** PUNTO C ***--------------------------------------------------------
 
-#----------------------D-----------------------------------
+#--------------------------------------------*** PUNTO D ***--------------------------------------------------------
 def calcular_max(lista_personajes:list):
     """
     Recibe una lista
@@ -61,10 +104,10 @@ def calcular_max(lista_personajes:list):
             mas_alto = personaje
     for personaje in lista_personajes:
         if personaje["altura"] == mas_alto["altura"]:
-            print(f"El personaje mas alto es: {mas_alto}")
-#----------------------D-----------------------------------
+            print(f"El personaje mas alto es: {mostrar_personaje(mas_alto)}")
+#--------------------------------------------*** PUNTO D ***--------------------------------------------------------
 
-#----------------------E-----------------------------------
+#--------------------------------------------*** PUNTO E ***--------------------------------------------------------
 def calcular_min(lista_personajes:list):
     """
     Recibe una lista
@@ -77,10 +120,10 @@ def calcular_min(lista_personajes:list):
             mas_bajo = personaje
     for personaje in lista_personajes:
         if personaje["altura"] == mas_bajo["altura"]:
-            print(f"El personaje mas bajo es: {mas_bajo}")
-#----------------------E-----------------------------------
+            print(f"El personaje mas bajo es: {mostrar_personaje(mas_bajo)}")
+#--------------------------------------------*** PUNTO E ***--------------------------------------------------------
 
-#----------------------F-----------------------------------
+#--------------------------------------------*** PUNTO F ***--------------------------------------------------------
 def calcular_promedio(lista_personajes:list) -> float:
     """
     Recine una lista
@@ -96,15 +139,15 @@ def calcular_promedio(lista_personajes:list) -> float:
         
     promedio_altura = acumulador_alturas / len(lista_personajes)
     return promedio_altura
-#----------------------F-----------------------------------
+#--------------------------------------------*** PUNTO F ***--------------------------------------------------------
 
-#----------------------G-----------------------------------
+#--------------------------------------------*** PUNTO G ***--------------------------------------------------------
 def calcular_nombre_anteriores():
     #print("Mas alto: {} \nMas bajo: {}".format(mas_alto["nombre"], mas_bajo["nombre"]))
     pass
-#----------------------G-----------------------------------
+#--------------------------------------------*** PUNTO G ***--------------------------------------------------------
 
-#----------------------H-----------------------------------
+#--------------------------------------------*** PUNTO H ***--------------------------------------------------------
 def calcular_mas_y_menos_pesado(lista_personajes:list):
     """
     Recibe una lista
@@ -122,10 +165,10 @@ def calcular_mas_y_menos_pesado(lista_personajes:list):
             
     for personaje in lista_personajes:
         if personaje["peso"] == mas_pesado["peso"]:
-            print(f"El personaje mas pesado es: {mas_pesado}")
+            print(f"El personaje mas pesado es: {mostrar_personaje(mas_pesado)}")
         if personaje["peso"] == menos_pesado["peso"]:
-            print(f"El personaje menos pesado es: {menos_pesado}")
-#----------------------H-----------------------------------
+            print(f"El personaje menos pesado es: {mostrar_personaje(menos_pesado)}")
+#--------------------------------------------*** PUNTO H ***--------------------------------------------------------
 
 while True:
     os.system("cls")
@@ -159,7 +202,7 @@ while True:
             calcular_min(lista_personajes)
         case "6":
             promedio = calcular_promedio(lista_personajes)
-            print(f"El promedio de altura es: {promedio}")
+            print(f"El promedio de altura es: {mostrar_personaje(promedio)}")
         case "7":
             calcular_nombre_anteriores()
         case "8":
