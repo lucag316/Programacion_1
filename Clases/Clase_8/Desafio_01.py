@@ -127,33 +127,99 @@ def Calcular_promedio_altura_femenino(lista_heroes:list) -> float:
 #--------------------------------------------*** PUNTO I ***--------------------------------------------------------
 
 #--------------------------------------------*** PUNTO J ***--------------------------------------------------------
-def Calcular_tipo_ojos(lista_heroes:list):
-    pass
-    # for heroe in lista_heroes:
-    #     match (heroe["color_ojos"]):
-    #         case "Silver":
-    #             pass
-    #         case "Green":
-    #             pass
-    #         case "Yellow":
-    #             pass
+def mostrar_tipo(lista_heroes:list, atributo:str) -> list:
+    """
+    Brief: Crea una lista con los distintos tipos de atributos
+    
+    Parameters: 
+        lista_heroes: list -> lista sobre la que voy a hacer la  busqueda de los atributos
+        atributo: str -> la clave del diccionario de donde voy a sacar los datos
+        
+    Return: Una list nueva con los distintos tipos de la variable ingresada
+    """
+    
+    if type(lista_heroes) == list and len(lista_heroes) > 0 and type(atributo) == str and len(atributo) > 0:
+        lista_tipo = []
+        for heroe in lista_heroes:
+            lista_tipo.append(heroe[atributo])
+        return lista_tipo
+
+
+def Calcular_cantidad_tipo(lista_heroes:list, atributo: str):
+    """
+    
+    """
+    if type(lista_heroes) == list and len(lista_heroes) > 0 and type(atributo) == str and len(atributo) > 0:
+        diccionario = {}
+        tipos = mostrar_tipo(lista_heroes, atributo)
+        
+        for tipo in set(tipos):
+            contador = 0
+            for heroe in lista_heroes:
+                if tipo == heroe[atributo]:
+                    if tipo == "" and atributo == "inteligencia":
+                        tipo = "No tiene"
+                    contador += 1
+            diccionario[tipo] = contador
+        return diccionario
+        
+def mostrar_lista(diccionario: dict):
+    for clave in diccionario:
+        print(f"{clave}: {diccionario[clave]}")
+
+mostrar_lista(Calcular_cantidad_tipo(lista_personajes, "color_ojos"))
 #--------------------------------------------*** PUNTO J ***--------------------------------------------------------
 # J. Determinar cuántos superhéroes tienen cada tipo de color de ojos.
-#--------------------------------------------*** PUNTO K ***--------------------------------------------------------
-#--------------------------------------------*** PUNTO K ***--------------------------------------------------------
 
-#--------------------------------------------*** PUNTO L ***--------------------------------------------------------
-#--------------------------------------------*** PUNTO L ***--------------------------------------------------------
-
+def mostrar_heroes_por_tipo():
+    pass
 #--------------------------------------------*** PUNTO M ***--------------------------------------------------------
-#--------------------------------------------*** PUNTO M ***--------------------------------------------------------
-
-#--------------------------------------------*** PUNTO N ***--------------------------------------------------------
-#--------------------------------------------*** PUNTO N ***--------------------------------------------------------
-
-#--------------------------------------------*** PUNTO O ***--------------------------------------------------------
-#--------------------------------------------*** PUNTO O ***--------------------------------------------------------
+# M. Listar todos los superhéroes agrupados por color de ojos.
 
 
+# while True:
+#     os.system("cls")
+#     menu = print("""
+#         =========================================
+#             ***** MENU DE OPCIONES *****
+#         =========================================
+#         1- Analizar detenidamente el set de datos
+#         2- Nombre de cada personaje
+#         3- Nombre y altura de cada personaje
+#         4- Personaje mas alto
+#         5- Personaje mas bajo
+#         6- Altura promedio
+#         7- Solo nombre del mas alto y mas bajo
+#         8- personaje mas y menos pesado
+#         9- Salir
+#         =========================================
+#             """)
+#     opcion = input("Ingrese una opcion: ")
+    
+#     match(opcion):
+#         case "1":
+#             analizar_datos(lista_personajes)
+#         case "2":
+#             imprimir_nombres(lista_personajes)
+#         case "3":
+#             imprimir_nombres_alturas(lista_personajes)
+#         case "4":
+#             calcular_max(lista_personajes)
+#         case "5":
+#             calcular_min(lista_personajes)
+#         case "6":
+#             promedio = calcular_promedio(lista_personajes)
+#             print(f"El promedio de altura es: {mostrar_personaje(promedio)}")
+#         case "7":
+#             calcular_nombre_anteriores()
+#         case "8":
+#             calcular_mas_y_menos_pesado(lista_personajes)
+#         case "9":
+#             confirmacion = input("Esta seguro? s/n: ")
+#             if confirmacion == "s":
+#                 break
+#             else: 
+#                 pass
+#     os.system("pause")
 
 # ARREGLAR EL PUNTO F

@@ -55,6 +55,7 @@ def mostrar_personaje(personaje:dict):
             personaje["color_pelo"], 
             personaje["fuerza"], 
             personaje["inteligencia"]))
+    return ("------------------------------------")
 
 #--------------------------------------------*** PUNTO A ***--------------------------------------------------------
 def analizar_datos(lista_personajes: list):
