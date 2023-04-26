@@ -123,6 +123,24 @@ def esta_en_la_lista(lista: list, item: str) -> bool:
             
         return esta
 
+def sacar_repetidos(lista: list) -> list:
+    """
+    brief: Saca los repetidos de una lista de elementos basicos, NO de diccionarios
+    
+    Parameters:
+        lista: list -> La lista que quiero sacarle los repetidos
+    
+    returns: Retorna una lista sin repetidos
+    """
+    if type(lista) == type([]) and len(lista) > 0:
+        lista_sin_repetidos = []
+        
+        for elemento in lista:
+            if not esta_en_la_lista(lista_sin_repetidos, elemento):
+                lista_sin_repetidos.append(elemento)
+            
+        return lista_sin_repetidos
+
 def filtrar_heroe(lista_heroes:list, clave: str, valor: str) -> list:
     """
     Brief: Filtra la lista que le pasas segun los parametros que le pases, creando una lista nueva y va agregando el diccionario del personaje si cumple con los parametros
@@ -142,20 +160,29 @@ def filtrar_heroe(lista_heroes:list, clave: str, valor: str) -> list:
                 
         return lista_filtrada
 
-def proyectar_clave(lista_heroes: list, clave: str) -> list:
+def proyectar_clave(lista_heroes: list, clave: str, con_repe: bool = False) -> list:
     """
-    Brief: Agrega una clave determinada de los diccionarios de la lista que le pasas a una lista nueva con solo esas claves
+    Brief: Agrega una clave determinada de los diccionarios de la lista que le pasas a una lista nueva con solo esas claves, puede estar repetida o no, depende los parametros
     
     Parameters:
         lista_heroes: list -> La lista de diccionarios que quiero filtrar
         clave: str -> La clave que quiero que sea la lista nueva
+        con_repe: bool -> es opcional, si esta en "False" imprime sin repetida, si esta en "True" imprime con la clave repetida(predeterminado: False)
         
     Return: Retorna la lista filtrada
     """
+    
+    
     if type(lista_heroes) == type([]) and type(clave) == type("") and len(lista_heroes) > 0:
+        
         lista_filtrada = []
+        
         for heroe in lista_heroes:
             lista_filtrada.append(heroe[clave])
+        
+        if not con_repe:
+            
+            lista_filtrada = sacar_repetidos(lista_filtrada)
         
         return lista_filtrada
 
@@ -208,36 +235,48 @@ def calcular_promedio(lista_heroes:list, genero:str, clave: str) -> float:
         
         return promedio
 
-def listar_agrupados_tipo(lista_heroes: list, clave: str) -> None:
+def cantidad_personajes_tipo(lista_heroes: list, clave: str):
     """
-    Brief:
+    Brief: Muestra la cantidad de heroes que tiene cada tipo de algo (En caso de no tener, ingresa "No Tiene")
     
     Parameters:
-        lista_heroes: list -> 
+    
+    Return:
+    """
+    if type(lista_heroes) == type([]) and len(lista_heroes) > 0:
+        lista_tipos = proyectar_clave(lista_heroes, clave)
+
+        for elemento in lista_tipos:
+            elemento = 0
+            for heroe in lista_heroes:
+                pass
+    # MAAAAAAL
+
+
+
+
+
+def listar_agrupados_tipo(lista_heroes: list, clave: str) -> None:
+    """
+    Brief: Muestra el nombre de los heroes separados en grupos segun la clave que le pases
+    
+    Parameters:
+        lista_heroes: list -> La lista de diccionario que queres separar
+        clave: str -> La clave del diccionario segun quieras agrupar
     
     Return: No retorna nada, imprime
     """
     if(type(lista_heroes) == type([]) and type(clave) == type("") and len(lista_heroes) > 0):
+        lista_tipos = proyectar_clave(lista_heroes, clave)
         
-        tipos = []
-        for heroe in lista_copiada:
-            heroe[clave] = heroe[clave].upper()  # NO SE SI HICE BIEN ESTE RENGLON, CREO QUE SI, PERO NO SE PORQUE ME APARECE EN BLANCO EL upper
-            if heroe[clave] not in tipos:
-                tipo = tipos.append(heroe[clave]) 
-        
-        for tipo in tipos:
+        for tipo in lista_tipos:
             print(tipo)
             for heroe in lista_heroes:
                 if heroe[clave] == tipo:
                     print(heroe["nombre"])
             print("------------------------------")
 
-
 # L. Determinar cuántos superhéroes tienen cada tipo de inteligencia (En caso de no tener, Inicializarlo con ‘No Tiene’).
-
-# O. Listar todos los superhéroes agrupados por tipo de inteligencia
-
-# FALTA EL PUNTO I
 
 lista_masculinos = filtrar_heroe(lista_copiada, "genero", "M")
 lista_femeninos = filtrar_heroe(lista_copiada, "genero", "F")
@@ -299,7 +338,7 @@ while True:
         case "12":
             pass
         case "13":
-            listar_agrupados_tipo(lista_copiada, "color_ojos")
+            listar_agrupados_tipo(lista_copiada, "color_ojos") # PREGUNTAR COMO HACER PARA QUE SE ME JUNTEN LOS DEL Blue y blue
         case "14":
             listar_agrupados_tipo(lista_copiada, "color_pelo")
         case "15":
@@ -311,115 +350,9 @@ while True:
             else: 
                 pass
         case "20":
-            pass
+            l1 = proyectar_clave(lista_copiada, "color_ojos", True)
+            l2 = proyectar_clave(lista_copiada, "color_ojos", False)
+            mostrar_lista(l1, "OJOS CON REPETICION")
+            mostrar_lista(l2, "OJOS SIN REPETICION")
+    
     os.system("pause")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#-------------------------------------------------------------------------------------------------
-    # colores = []
-    # for heroe in lista_copiada:
-    #     heroe["color_ojos"] = heroe["color_ojos"].capitalize()  # NO SE SI HICE BIEN ESTE RENGLON, CREO QUE SI, PERO NO SE PORQUE ME APARECE EN BLANCO EL capitalize
-    #     if heroe["color_ojos"] not in colores:
-    #         color = colores.append(heroe["color_ojos"]) 
-    
-    # for color in colores:
-    #     print(f"Color: {color} \n")
-    #     for heroe in lista_heroes:
-    #         if heroe["color_ojos"] == color:
-    #             print(heroe["nombre"])
-    #     print("------------------------------")
-#-------------------------------------------------------------------------------------------------
-
-    #-------------------------------------------------------------------------------------------------
-# def mostrar_tipo(lista_heroes:list, atributo:str) -> list:
-#     """
-#     Brief: Crea una lista con los distintos tipos de atributos
-    
-#     Parameters: 
-#         lista_heroes: list -> lista sobre la que voy a hacer la  busqueda de los atributos
-#         atributo: str -> la clave del diccionario de donde voy a sacar los datos
-        
-#     Return: Una list nueva con los distintos tipos de la variable ingresada
-#     """
-    
-#     if type(lista_heroes) == list and len(lista_heroes) > 0 and type(atributo) == str and len(atributo) > 0:
-#         lista_tipo = []
-#         for heroe in lista_heroes:
-#             lista_tipo.append(heroe[atributo])
-#         return lista_tipo
-
-# def Calcular_cantidad_tipo(lista_heroes:list, atributo: str):
-#     """
-    
-#     """
-#     if type(lista_heroes) == list and len(lista_heroes) > 0 and type(atributo) == str and len(atributo) > 0:
-#         diccionario = {}
-#         tipos = mostrar_tipo(lista_heroes, atributo)
-        
-#         for tipo in set(tipos):
-#             contador = 0
-#             for heroe in lista_heroes:
-#                 if tipo == heroe[atributo]:
-#                     if tipo == "" and atributo == "inteligencia":
-#                         tipo = "No tiene"
-#                     contador += 1
-#             diccionario[tipo] = contador
-#         return diccionario
-        
-# def mostrar_lista(diccionario: dict):
-#     for clave in diccionario:
-#         print(f"{clave}: {diccionario[clave]}")
-
-# mostrar_lista(Calcular_cantidad_tipo(lista_personajes, "color_ojos"))
-
-# def mostrar_heroes_por_tipo():
-#     pass
-    #-------------------------------------------------------------------------------------------------
-
-
-    #-------------------------------------------------------------------------------------------------
-# def Calcular_promedio_altura_femenino(lista_heroes:list) -> float:
-#     cantidad_femeninos = 0
-#     acumulador_alturas_f = 0
-#     promedio_altura_f = 0
-    
-#     for heroe in lista_heroes:
-#         if heroe["genero"] == "F":
-#             acumulador_alturas_f += heroe["altura"]
-#             cantidad_femeninos += 1
-#     promedio_altura_f = acumulador_alturas_f / cantidad_femeninos
-#     return promedio_altura_f
-    #-------------------------------------------------------------------------------------------------
-
-#--------------------------------------------*** PUNTO C ***--------------------------------------------------------
-# def calcular_mayor_masculino(lista_heroes:list) -> dict:
-#     masculino_mayor_altura = lista_heroes[0]
-#     for heroe in lista_heroes:
-#         if heroe["genero"] == "M" and heroe["altura"] > masculino_mayor_altura["altura"]:
-#             masculino_mayor_altura = heroe
-#     return masculino_mayor_altura
-#--------------------------------------------*** PUNTO C ***--------------------------------------------------------

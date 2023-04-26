@@ -359,23 +359,41 @@ while True:
 
 
 
+#------------------------------------------------------------------------------------------------------------
+    # if(type(lista_heroes) == type([]) and type(clave) == type("") and len(lista_heroes) > 0):
+        
+    #     tipos = []
+    #     for heroe in lista_copiada:
+    #         heroe[clave] = heroe[clave].upper()  # NO SE SI HICE BIEN ESTE RENGLON, CREO QUE SI, PERO NO SE PORQUE ME APARECE EN BLANCO EL upper
+    #         if heroe[clave] not in tipos:
+    #             tipo = tipos.append(heroe[clave]) 
+        
+    #     for tipo in tipos:
+    #         print(tipo)
+    #         for heroe in lista_heroes:
+    #             if heroe[clave] == tipo:
+    #                 print(heroe["nombre"])
+    #         print("------------------------------")
+#------------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#------------------------------------------------------------------------------------------------------------
+    # PROYECTAR CLAVE BIEN pero lo mejore
+    # if type(lista_heroes) == type([]) and type(clave) == type("") and len(lista_heroes) > 0:
+        
+    #     lista_filtrada = []
+        
+    #     for heroe in lista_heroes:
+    #         lista_filtrada.append(heroe[clave])
+        
+    #     if not con_repe:
+    #         lista_aux = []
+    #         for item in lista_filtrada:
+    #             if not esta_en_la_lista(lista_aux, item):
+    #                 lista_aux.append(item)
+    #         lista_filtrada = lista_aux
+        
+    #     return lista_filtrada
+#------------------------------------------------------------------------------------------------------------
 
 
 #-------------------------------------------------------------------------------------------------
@@ -393,7 +411,7 @@ while True:
     #     print("------------------------------")
 #-------------------------------------------------------------------------------------------------
 
-    #-------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------
 # def mostrar_tipo(lista_heroes:list, atributo:str) -> list:
 #     """
 #     Brief: Crea una lista con los distintos tipos de atributos
