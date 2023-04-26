@@ -57,7 +57,6 @@ def mostrar_personaje(personaje:dict):
             personaje["inteligencia"]))
     return ("------------------------------------")
 
-#--------------------------------------------*** PUNTO A ***--------------------------------------------------------
 def analizar_datos(lista_personajes: list):
     """
     Recibe una lista
@@ -66,9 +65,7 @@ def analizar_datos(lista_personajes: list):
     """
     for personaje in lista_personajes:
         print(mostrar_personaje(personaje))
-#--------------------------------------------*** PUNTO A ***--------------------------------------------------------
 
-#--------------------------------------------*** PUNTO B ***--------------------------------------------------------
 def imprimir_nombres(lista_personajes:list):
     """
     Recibe una lista
@@ -77,9 +74,7 @@ def imprimir_nombres(lista_personajes:list):
     """
     for personaje in lista_personajes:
         print(personaje["nombre"])
-#--------------------------------------------*** PUNTO B ***--------------------------------------------------------
 
-#--------------------------------------------*** PUNTO C ***--------------------------------------------------------
 def imprimir_nombres_alturas(lista_personajes:list):
     """
     Recibe una lista
@@ -90,9 +85,7 @@ def imprimir_nombres_alturas(lista_personajes:list):
         nombre = personaje["nombre"]
         altura = personaje["altura"]
         print(f"Nombre: {nombre}| Altura: {altura}")
-#--------------------------------------------*** PUNTO C ***--------------------------------------------------------
 
-#--------------------------------------------*** PUNTO D ***--------------------------------------------------------
 def calcular_max(lista_personajes:list):
     """
     Recibe una lista
@@ -106,9 +99,7 @@ def calcular_max(lista_personajes:list):
     for personaje in lista_personajes:
         if personaje["altura"] == mas_alto["altura"]:
             print(f"El personaje mas alto es: {mostrar_personaje(mas_alto)}")
-#--------------------------------------------*** PUNTO D ***--------------------------------------------------------
 
-#--------------------------------------------*** PUNTO E ***--------------------------------------------------------
 def calcular_min(lista_personajes:list):
     """
     Recibe una lista
@@ -122,9 +113,7 @@ def calcular_min(lista_personajes:list):
     for personaje in lista_personajes:
         if personaje["altura"] == mas_bajo["altura"]:
             print(f"El personaje mas bajo es: {mostrar_personaje(mas_bajo)}")
-#--------------------------------------------*** PUNTO E ***--------------------------------------------------------
 
-#--------------------------------------------*** PUNTO F ***--------------------------------------------------------
 def calcular_promedio(lista_personajes:list) -> float:
     """
     Recine una lista
@@ -140,15 +129,11 @@ def calcular_promedio(lista_personajes:list) -> float:
         
     promedio_altura = acumulador_alturas / len(lista_personajes)
     return promedio_altura
-#--------------------------------------------*** PUNTO F ***--------------------------------------------------------
 
-#--------------------------------------------*** PUNTO G ***--------------------------------------------------------
 def calcular_nombre_anteriores():
     #print("Mas alto: {} \nMas bajo: {}".format(mas_alto["nombre"], mas_bajo["nombre"]))
     pass
-#--------------------------------------------*** PUNTO G ***--------------------------------------------------------
 
-#--------------------------------------------*** PUNTO H ***--------------------------------------------------------
 def calcular_mas_y_menos_pesado(lista_personajes:list):
     """
     Recibe una lista
@@ -169,7 +154,6 @@ def calcular_mas_y_menos_pesado(lista_personajes:list):
             print(f"El personaje mas pesado es: {mostrar_personaje(mas_pesado)}")
         if personaje["peso"] == menos_pesado["peso"]:
             print(f"El personaje menos pesado es: {mostrar_personaje(menos_pesado)}")
-#--------------------------------------------*** PUNTO H ***--------------------------------------------------------
 
 while True:
     os.system("cls")
