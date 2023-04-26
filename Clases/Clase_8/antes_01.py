@@ -52,7 +52,24 @@ def normalizar_datos(lista_heroes: list):
         personaje["fuerza"] = int(personaje["fuerza"])
 normalizar_datos(lista_copiada)
 
-def mostrar_personaje(personaje:dict) -> None:
+def crear_lista_femeninos(lista_heroes: list) -> list:
+    lista_femeninos = []
+    for heroe in lista_heroes:
+        if heroe["genero"] == "F":
+            lista_femeninos.append(heroe)
+    return lista_femeninos
+def crear_lista_masculinos(lista_heroes: list) -> list:
+    lista_masculinos = []
+    for heroe in lista_heroes:
+        if heroe["genero"] == "M":
+            lista_masculinos.append(heroe)
+    return lista_masculinos
+
+lista_femeninos = crear_lista_femeninos(lista_copiada)
+lista_masculinos = crear_lista_masculinos(lista_copiada)
+
+
+def mostrar_personaje(personaje:dict):
     '''
     Brief: Muestra prolijamente el diccionario del personaje que recibe
     
@@ -61,29 +78,28 @@ def mostrar_personaje(personaje:dict) -> None:
     
     Return: No retorna nada, imprime
     '''
-    if type(personaje) == type({}):
-        print("""
-        Nombre: {0} 
-        Identidad: {1} 
-        Empresa: {2} 
-        Altura: {3} 
-        Peso: {4} 
-        Genero: {5} 
-        Color de ojos: {6} 
-        Color de pelo: {7} 
-        Fuerza: {8} 
-        Inteligencia: {9}
-        """.format(personaje["nombre"], 
-                personaje["identidad"],
-                personaje["empresa"], 
-                personaje["altura"], 
-                personaje["peso"], 
-                personaje["genero"], 
-                personaje["color_ojos"], 
-                personaje["color_pelo"], 
-                personaje["fuerza"], 
-                personaje["inteligencia"]))
-        return ("------------------------------------")
+    print("""
+    Nombre: {0} 
+    Identidad: {1} 
+    Empresa: {2} 
+    Altura: {3} 
+    Peso: {4} 
+    Genero: {5} 
+    Color de ojos: {6} 
+    Color de pelo: {7} 
+    Fuerza: {8} 
+    Inteligencia: {9}
+    """.format(personaje["nombre"], 
+            personaje["identidad"],
+            personaje["empresa"], 
+            personaje["altura"], 
+            personaje["peso"], 
+            personaje["genero"], 
+            personaje["color_ojos"], 
+            personaje["color_pelo"], 
+            personaje["fuerza"], 
+            personaje["inteligencia"]))
+    return ("------------------------------------")
 
 def mostrar_lista(lista: list, titulo: str) -> None:
     """
@@ -96,32 +112,17 @@ def mostrar_lista(lista: list, titulo: str) -> None:
     Return: No retorna nada, imprime
     """
     if type(lista) == type([]) and type(titulo) == type("") and len(lista) > 0:
-        print("======================================")
+        print("--------------------------------------")
         print(f"   ****** {titulo} *****")
-        print("======================================")
+        print("--------------------------------------")
         for item in lista:
             print(item)
-        print("======================================")
+        print("--------------------------------------")
 
-def esta_en_la_lista(lista: list, item: str) -> bool:
-    """
-    Brief: Te devuelve si el item esta o no esta en a lista
-    
-    Parameters:
-        lista: list -> la lista en la que se va a buscar
-        item: str -> el item que se va a buscar en la lista
-    
-    Return: Si esta en la lista te retorna "True", si no esta "False"
-    """
-    if type(lista) == type([]) and type(item) == type("") and len(lista) > 0:
-        esta = False
-        
-        for elemento in lista:
-            if elemento == item:
-                esta = True
-                break
-            
-        return esta
+
+
+
+
 
 def filtrar_heroe(lista_heroes:list, clave: str, valor: str) -> list:
     """
@@ -134,30 +135,67 @@ def filtrar_heroe(lista_heroes:list, clave: str, valor: str) -> list:
         
     Return: Retorna la lista de diccionarios filtrada
     """
-    if type(lista_heroes) == type([]) and type(clave) == type("") and type(valor) == type("") and len(lista_heroes) > 0:
+    if(type(lista_heroes) == type([]) and type(clave) == type("") and type(valor) == type("") and len(lista_heroes) > 0):
         lista_filtrada = []
         for heroe in lista_heroes:
             if heroe[clave] == valor:
                 lista_filtrada.append(heroe)
-                
         return lista_filtrada
 
-def proyectar_clave(lista_heroes: list, clave: str) -> list:
+def proyectar_heroes(lista_heroes: list, clave: str) -> list:
     """
-    Brief: Agrega una clave determinada de los diccionarios de la lista que le pasas a una lista nueva con solo esas claves
+    Brief:
     
     Parameters:
         lista_heroes: list -> La lista de diccionarios que quiero filtrar
-        clave: str -> La clave que quiero que sea la lista nueva
+        clave: str -> La clave que quiero filtrar
         
     Return: Retorna la lista filtrada
     """
-    if type(lista_heroes) == type([]) and type(clave) == type("") and len(lista_heroes) > 0:
-        lista_filtrada = []
-        for heroe in lista_heroes:
-            lista_filtrada.append(heroe[clave])
+    lista_filtrada = []
+    for heroe in lista_heroes:
+        lista_filtrada.append(heroe[clave])
+    
+    return lista_filtrada
+
+
+
+def esta_en_la_lista(lista: list, item: str) -> bool:
+    """
+    Brief: Te devuelve si el item esta o no esta en a lista
+    
+    Parameters:
+        lista: list -> la lista en la que se va a buscar
+        item: str -> el item que se va a buscar en la lista
+    
+    Return: Si esta en la lista te retorna "True", si no esta "False"
+    """
+    esta = False
+    
+    for elemento in lista:
+        if elemento == item:
+            esta = True
+            break
         
-        return lista_filtrada
+    return esta
+
+
+
+def imprimir_nombres_segun_genero(lista_heroes: list, genero: str):
+    """
+    brief: Imprime solo los nombres de una lista segun los parametros que ingreses
+    
+    Parameters:
+        lista-heroes: list -> la lista sobre la cual se imprimiran los nombres
+        genero: str -> depende que genero ingresemos seran los nombres que se van a imprimir
+        
+    Return: No retorna nada, imprime
+
+    """
+    if(type(lista_heroes) == type([]) and type(genero) == type("") and len(lista_heroes) > 0):
+        for heroe in lista_heroes:
+            if heroe["genero"] == genero:
+                print("Nombre: {0}".format(heroe["nombre"]))
 
 def calcular_max_min(lista_heroes: list, condicion: str, clave: str) -> dict:
     """
@@ -208,7 +246,7 @@ def calcular_promedio(lista_heroes:list, genero:str, clave: str) -> float:
         
         return promedio
 
-def listar_agrupados_tipo(lista_heroes: list, clave: str) -> None:
+def listar_agrupados_tipo(lista_heroes: list, clave: str):
     """
     Brief:
     
@@ -233,14 +271,17 @@ def listar_agrupados_tipo(lista_heroes: list, clave: str) -> None:
             print("------------------------------")
 
 
-# L. Determinar cuántos superhéroes tienen cada tipo de inteligencia (En caso de no tener, Inicializarlo con ‘No Tiene’).
+# M. Listar todos los superhéroes agrupados por color de ojos.    
 
+
+# J. Determinar cuántos superhéroes tienen cada tipo de color de ojos.
+# K. Determinar cuántos superhéroes tienen cada tipo de color de pelo.
+# L. Determinar cuántos superhéroes tienen cada tipo de inteligencia (En caso de
+# no tener, Inicializarlo con ‘No Tiene’).
+# M. Listar todos los superhéroes agrupados por color de ojos.
+# N. Listar todos los superhéroes agrupados por color de pelo.
 # O. Listar todos los superhéroes agrupados por tipo de inteligencia
-
 # FALTA EL PUNTO I
-
-lista_masculinos = filtrar_heroe(lista_copiada, "genero", "M")
-lista_femeninos = filtrar_heroe(lista_copiada, "genero", "F")
 
 while True:
     os.system("cls")
@@ -273,11 +314,9 @@ while True:
     
     match(opcion):
         case "1":
-            lista_nombres_masculinos = proyectar_clave(lista_masculinos, "nombre")
-            mostrar_lista(lista_nombres_masculinos, " Nombres masculinos")
+            imprimir_nombres_segun_genero(lista_copiada, "M")
         case "2":
-            lista_nombres_femeninos = proyectar_clave(lista_femeninos, "nombre")
-            mostrar_lista(lista_nombres_femeninos, " Nombres femeninos")
+            imprimir_nombres_segun_genero(lista_copiada, "F")
         case "3":
             print(calcular_max_min(lista_masculinos, "max", "altura"))
         case "4":
@@ -311,7 +350,7 @@ while True:
             else: 
                 pass
         case "20":
-            pass
+            print(filtrar_heroe(lista_copiada, "genero", "F"))
     os.system("pause")
 
 

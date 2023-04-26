@@ -81,3 +81,47 @@ from data_stark import lista_personajes
 
 
 ##########################################
+def mostrar_lista(lista: list, titulo: str) -> None:
+    """
+    Brief: Muestra la lista mas prolija con su item y con un titulo (como un print pero mas prolijo)
+    
+    Parameters:
+        lista: list -> lista que quiero mostrar
+        titulo: str -> Titulo que le quiero poner a la lista
+        
+    Return: No retorna nada, imprime
+    """
+    if type(lista) == type([]) and type(titulo) == type("") and len(lista) > 0:
+        print("--------------------------------------")
+        print(f"   ****** {titulo} *****")
+        print("--------------------------------------")
+        for item in lista:
+            print(item)
+        print("--------------------------------------")
+
+
+
+
+
+
+def filtrar(lista, clave, valor_que_quiero):
+    lista_nueva = []
+    for elemento in lista:
+        if elemento[clave] == valor_que_quiero:
+            lista_nueva.append(elemento)
+    return lista_nueva
+
+def proyectar_clave(lista, clave):
+    lista_nueva_nombres = []
+    for elemento in lista:
+        lista_nueva_nombres.append(elemento[clave])
+        
+    return lista_nueva_nombres
+
+l = filtrar(lista_personajes, "genero", "F") # todos la lista de dict femeninos
+l2 = proyectar_clave(l, "nombre") #solo los nombres de la lista  l
+
+#print(l)
+#print(l2)
+
+mostrar_lista(l2, "NOMBRES FEMENINOS")
