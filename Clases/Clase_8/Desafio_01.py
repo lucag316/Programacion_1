@@ -30,6 +30,15 @@ lista_copiada = []
 for personaje in lista_personajes:
     lista_copiada.append(personaje.copy())
 
+# def copiar_lista(lista: list):
+#     lista_copiada = []
+#     for elemento in lista:
+#         lista_copiada.append(elemento.copy())
+        
+#     return lista_copiada
+
+# lista_copiada = copiar_lista(lista_personajes)
+
 def normalizar_datos(lista_heroes: list):
     """
     Recibe una lista
@@ -74,8 +83,19 @@ def mostrar_personaje(personaje:dict):
             personaje["fuerza"], 
             personaje["inteligencia"]))
     return ("------------------------------------")
-def mostrar_lista():
-    pass
+
+def filtrar_heroe(lista_heroes:list, clave: str, valor: str) -> list:
+    lista_filtrada = []
+    
+    return lista_filtrada
+
+def proyectar_heroes(lista_heroes: list, clave: str) -> list:
+    lista_filtrada = []
+    for heroe in lista_heroes:
+        lista_filtrada.append(heroe[clave])
+    
+    return lista_filtrada
+
 
 def crear_lista_femeninos(lista_heroes: list) -> list:
     lista_femeninos = []
@@ -86,7 +106,7 @@ def crear_lista_femeninos(lista_heroes: list) -> list:
 def crear_lista_masculinos(lista_heroes: list) -> list:
     lista_masculinos = []
     for heroe in lista_heroes:
-        if heroe["genero"] == "F":
+        if heroe["genero"] == "M":
             lista_masculinos.append(heroe)
     return lista_masculinos
 
@@ -109,7 +129,10 @@ def esta_en_la_lista(lista: list, item: str) -> bool:
         if elemento == item:
             esta = True
             break
+        
     return esta
+
+
 
 def imprimir_nombres_segun_genero(lista_heroes: list, genero: str):
     """
@@ -122,13 +145,15 @@ def imprimir_nombres_segun_genero(lista_heroes: list, genero: str):
     Return: No retorna nada, imprime
 
     """
-    for heroe in lista_heroes:
-        if heroe["genero"] == genero:
-            print("Nombre: {0}".format(heroe["nombre"]))
+    if(type(lista_heroes) == type([]) and type(genero) == type("") and len(lista_heroes) > 0):
+        for heroe in lista_heroes:
+            if heroe["genero"] == genero:
+                print("Nombre: {0}".format(heroe["nombre"]))
 
 def calcular_max_min(lista_heroes: list, condicion: str, clave: str) -> dict:
     """
-    brief: Calcula cual es el maximo o el minimo de una lista(depende de los parametros que ingreses)
+    brief: Calcula cual es el maximo o el minimo de una lista de diccionarios(depende de los parametros que ingreses).
+    Tambien llama a la funcion "mostra_personaje" para que lo que retorne se vea prolijo
     
     Parameters: 
         lista_heroes: list -> sobre la lista que voy a calcular
@@ -137,16 +162,17 @@ def calcular_max_min(lista_heroes: list, condicion: str, clave: str) -> dict:
     
     Return: Retorna el diccionario del heroe segun el calculo que se hizo
     """
-    if(type(lista_heroes) == type([])and type(condicion) == type("") and type(clave) == type("") and len(lista_heroes) > 0):
+    if(type(lista_heroes) == type([]) and type(condicion) == type("") and type(clave) == type("") and len(lista_heroes) > 0):
         
         max_min = lista_heroes[0]
         
         for heroe in lista_heroes:
-            if condicion == "max":
-                heroe[clave] > max_min[clave]
-            if condicion == "min":
-                heroe[clave] > max_min[clave]
-            
+            if condicion == "max" and heroe[clave] > max_min[clave]:
+                max_min = heroe
+            if condicion == "min" and heroe[clave] < max_min[clave]:
+                max_min = heroe
+                
+        max_min = mostrar_personaje(max_min)
         return max_min
 
 def calcular_promedio(lista_heroes:list, genero:str, clave: str) -> float:
@@ -160,22 +186,20 @@ def calcular_promedio(lista_heroes:list, genero:str, clave: str) -> float:
     
     Return: Retorna el promedio (float)
     """
-    cantidad= 0
-    acumulador = 0
-    promedio = 0
-    
-    for heroe in lista_heroes:
-        if heroe["genero"] == genero:
-            acumulador += heroe[clave]
-            cantidad += 1
-    promedio = acumulador / cantidad
-    return promedio
+    if(type(lista_heroes) == type([]) and type(genero) == type("") and type(clave) == type("") and len(lista_heroes) > 0):
+        cantidad= 0
+        acumulador = 0
+        promedio = 0
+        
+        for heroe in lista_heroes:
+            if heroe["genero"] == genero:
+                acumulador += heroe[clave]
+                cantidad += 1
+        promedio = acumulador / cantidad
+        
+        return promedio
 
-
-# I. Informar cual es el Nombre del superhéroe asociado a cada uno de los
-# indicadores anteriores (ítems C a F)
-
-def nombres_agrupados_tipo(lista_heroes: list, clave: str):
+def listar_agrupados_tipo(lista_heroes: list, clave: str):
     """
     Brief:
     
@@ -184,36 +208,25 @@ def nombres_agrupados_tipo(lista_heroes: list, clave: str):
     
     Return: No retorna nada, imprime
     """
-    tipos = []
-    for heroe in lista_copiada:
-        heroe[clave] = heroe[clave].upper()  # NO SE SI HICE BIEN ESTE RENGLON, CREO QUE SI, PERO NO SE PORQUE ME APARECE EN BLANCO EL capitalize
-        if heroe[clave] not in tipos:
-            tipo = tipos.append(heroe[clave]) 
-    
-    for tipo in tipos:
-        print(tipo)
-        for heroe in lista_heroes:
-            if heroe[clave] == tipo:
-                print(heroe["nombre"])
-        print("------------------------------")
-    
-    
-    
-    
-    
-    # colores = []
-    # for heroe in lista_copiada:
-    #     heroe["color_ojos"] = heroe["color_ojos"].capitalize()  # NO SE SI HICE BIEN ESTE RENGLON, CREO QUE SI, PERO NO SE PORQUE ME APARECE EN BLANCO EL capitalize
-    #     if heroe["color_ojos"] not in colores:
-    #         color = colores.append(heroe["color_ojos"]) 
-    
-    # for color in colores:
-    #     print(f"Color: {color} \n")
-    #     for heroe in lista_heroes:
-    #         if heroe["color_ojos"] == color:
-    #             print(heroe["nombre"])
-    #     print("------------------------------")
-    
+    if(type(lista_heroes) == type([]) and type(clave) == type("") and len(lista_heroes) > 0):
+        
+        tipos = []
+        for heroe in lista_copiada:
+            heroe[clave] = heroe[clave].upper()  # NO SE SI HICE BIEN ESTE RENGLON, CREO QUE SI, PERO NO SE PORQUE ME APARECE EN BLANCO EL upper
+            if heroe[clave] not in tipos:
+                tipo = tipos.append(heroe[clave]) 
+        
+        for tipo in tipos:
+            print(tipo)
+            for heroe in lista_heroes:
+                if heroe[clave] == tipo:
+                    print(heroe["nombre"])
+            print("------------------------------")
+
+
+# M. Listar todos los superhéroes agrupados por color de ojos.    
+
+
 # J. Determinar cuántos superhéroes tienen cada tipo de color de ojos.
 # K. Determinar cuántos superhéroes tienen cada tipo de color de pelo.
 # L. Determinar cuántos superhéroes tienen cada tipo de inteligencia (En caso de
@@ -221,7 +234,7 @@ def nombres_agrupados_tipo(lista_heroes: list, clave: str):
 # M. Listar todos los superhéroes agrupados por color de ojos.
 # N. Listar todos los superhéroes agrupados por color de pelo.
 # O. Listar todos los superhéroes agrupados por tipo de inteligencia
-
+# FALTA EL PUNTO I
 
 while True:
     os.system("cls")
@@ -278,11 +291,11 @@ while True:
         case "12":
             pass
         case "13":
-            nombres_agrupados_tipo(lista_copiada, "color_ojos")
+            listar_agrupados_tipo(lista_copiada, "color_ojos")
         case "14":
-            nombres_agrupados_tipo(lista_copiada, "color_pelo")
+            listar_agrupados_tipo(lista_copiada, "color_pelo")
         case "15":
-            nombres_agrupados_tipo(lista_copiada, "inteligencia")
+            listar_agrupados_tipo(lista_copiada, "inteligencia")
         case "16":
             confirmacion = input("Esta seguro? s/otra tecla: ")
             if confirmacion == "s":
@@ -302,6 +315,23 @@ while True:
 
 
 
+
+#-------------------------------------------------------------------------------------------------
+    # colores = []
+    # for heroe in lista_copiada:
+    #     heroe["color_ojos"] = heroe["color_ojos"].capitalize()  # NO SE SI HICE BIEN ESTE RENGLON, CREO QUE SI, PERO NO SE PORQUE ME APARECE EN BLANCO EL capitalize
+    #     if heroe["color_ojos"] not in colores:
+    #         color = colores.append(heroe["color_ojos"]) 
+    
+    # for color in colores:
+    #     print(f"Color: {color} \n")
+    #     for heroe in lista_heroes:
+    #         if heroe["color_ojos"] == color:
+    #             print(heroe["nombre"])
+    #     print("------------------------------")
+#-------------------------------------------------------------------------------------------------
+
+    #-------------------------------------------------------------------------------------------------
 # def mostrar_tipo(lista_heroes:list, atributo:str) -> list:
 #     """
 #     Brief: Crea una lista con los distintos tipos de atributos
@@ -345,43 +375,10 @@ while True:
 
 # def mostrar_heroes_por_tipo():
 #     pass
+    #-------------------------------------------------------------------------------------------------
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    #-------------------------------------------------------------------------------------------------
 # def Calcular_promedio_altura_femenino(lista_heroes:list) -> float:
 #     cantidad_femeninos = 0
 #     acumulador_alturas_f = 0
@@ -393,7 +390,7 @@ while True:
 #             cantidad_femeninos += 1
 #     promedio_altura_f = acumulador_alturas_f / cantidad_femeninos
 #     return promedio_altura_f
-
+    #-------------------------------------------------------------------------------------------------
 
 #--------------------------------------------*** PUNTO C ***--------------------------------------------------------
 # def calcular_mayor_masculino(lista_heroes:list) -> dict:
