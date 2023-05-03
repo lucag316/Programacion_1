@@ -54,6 +54,38 @@
 
 
 
-
-
 # La diferencia entre funcion y metodo es que cuando una funcion esta dentro de un objeto, en vez de llamarse funcion, se llama metodo. Si la funcion esta sola, se le dice funcion (conceptualmente es lo mismo, un algoritmo o bloque de codigo que le pusieron una etiqueta).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
