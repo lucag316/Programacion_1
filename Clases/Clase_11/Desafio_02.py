@@ -171,7 +171,7 @@ def stark_calcular_imprimir_heroe(lista_heroes: list, tipo_calculo: str, key: st
     """
     if len(lista_heroes) > 0:
         heroe = calcular_max_min_dato(lista_heroes, tipo_calculo, key)
-        imprimir_dato("(condicion): Nombre: {0} | {1}: {2}".format(heroe["nombre"], key, heroe[key]))   # averiguar como se pone (condicion)
+        imprimir_dato(": Nombre: {0} | {1}: {2}".format(heroe["nombre"], key, heroe[key]))   # averiguar como se pone (condicion), o usar la key de {1}, o paso otro parametro
     else:
         return -1
 
@@ -308,7 +308,7 @@ def stark_menu_principal() -> int:
     opcion_validada = validar_entero(opcion)
     
     if opcion_validada:
-        retorno = int(opcion_validada)
+        retorno = int(opcion)
     else:
         retorno = -1
     
@@ -329,37 +329,108 @@ def stark_marvel_app(lista_heroes: list):
     os.system("cls")
     while True:
         opcion = stark_menu_principal()
-        match(opcion):
-            case 1:
-                stark_imprimir_nombres_heroes(lista_personajes)
-            case 2:
-                stark_imprimir_nombres_alturas(lista_personajes)
-            case 3:
-                print(stark_calcular_imprimir_heroe(lista_personajes, "max", "altura"))
-            case 4:
-                print(stark_calcular_imprimir_heroe(lista_personajes, "min", "altura"))
-            case 5:
-                print(stark_calcular_imprimir_heroe(lista_personajes, "max", "peso"))
-            case 6:
-                print(stark_calcular_imprimir_heroe(lista_personajes, "min", "peso"))
-            case 7:
-                print(stark_calcular_imprimir_heroe(lista_personajes, "max", "Fuerza"))
-            case 8:
-                print(stark_calcular_imprimir_heroe(lista_personajes, "min", "Fuerza"))
-            case 9:
-                stark_calcular_imprimir_promedio_altura(lista_personajes)
-            case 10:
-                print(calcular_promedio(lista_personajes, "peso"))
-            case 11:
-                print(calcular_promedio(lista_personajes, "fuerza"))
-            case 12:
-                confirmacion = input("Esta seguro? s/otra tecla: ")
-                if confirmacion == "s":
-                    break
-                else: 
-                    pass
-            case _:
-                print("Opcion incorrecta, vuelve a ingresar el dato: ")
+        if opcion == 1:
+            stark_imprimir_nombres_heroes(lista_heroes)
+        elif opcion == 2:
+            stark_imprimir_nombres_alturas(lista_heroes)
+        elif opcion == 3:
+            print(stark_calcular_imprimir_heroe(lista_heroes, "max", "altura"))
+        elif opcion == 4:
+            print(stark_calcular_imprimir_heroe(lista_heroes, "min", "altura"))
+        elif opcion == 5:
+            print(stark_calcular_imprimir_heroe(lista_heroes, "max", "peso"))
+        elif opcion == 6:
+            print(stark_calcular_imprimir_heroe(lista_heroes, "min", "peso"))
+        elif opcion == 7:
+            print(stark_calcular_imprimir_heroe(lista_heroes, "max", "fuerza"))
+        elif opcion == 8:
+            print(stark_calcular_imprimir_heroe(lista_heroes, "min", "fuerza"))
+        elif opcion == 9:
+            stark_calcular_imprimir_promedio_altura(lista_heroes)
+        elif opcion == 10:
+            print(calcular_promedio(lista_heroes, "peso"))
+        elif opcion == 11:
+            print(calcular_promedio(lista_heroes, "fuerza"))
+        elif opcion == 12:
+            confirmacion = input("Esta seguro? s/otra tecla: ")
+            if confirmacion == "s":
+                break
+            else: 
+                pass
+        else:
+            print("Opcion incorrecta, vuelve a ingresar el dato: ")
         os.system("pause")
 
 stark_marvel_app(lista_personajes)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def stark_marvel_app(lista_heroes: list):
+#     """
+#     Brief: Se encarga de la ejecucion principal del programa, informa por consola si se selecciono una opcion incorrecta y vuelve a pedir el dato al usuario. Reutiliza las funciones: stark_menu_principal(), stark_imprimir_nombres_heroes(), stark_imprimir_nombres_alturas(), stark_calcular_imprimir_heroe(), stark_calcular_imprimir_promedio_altura(), calcular_promedio()
+    
+#     Parameters: 
+#         lista_heroes: list -> La lista  que se desea utilizar
+    
+#     Return: No tiene retorno, imprime segun la opcion que se seleccione
+#     """
+    
+#     # agregue la funcion calcular_promedio() aunque no empieza con "stark"
+#     os.system("cls")
+#     while True:
+#         opcion = stark_menu_principal()
+#         match(opcion):
+#             case 1:
+#                 stark_imprimir_nombres_heroes(lista_personajes)
+#             case 2:
+#                 stark_imprimir_nombres_alturas(lista_personajes)
+#             case 3:
+#                 print(stark_calcular_imprimir_heroe(lista_personajes, "max", "altura"))
+#             case 4:
+#                 print(stark_calcular_imprimir_heroe(lista_personajes, "min", "altura"))
+#             case 5:
+#                 print(stark_calcular_imprimir_heroe(lista_personajes, "max", "peso"))
+#             case 6:
+#                 print(stark_calcular_imprimir_heroe(lista_personajes, "min", "peso"))
+#             case 7:
+#                 print(stark_calcular_imprimir_heroe(lista_personajes, "max", "Fuerza"))
+#             case 8:
+#                 print(stark_calcular_imprimir_heroe(lista_personajes, "min", "Fuerza"))
+#             case 9:
+#                 stark_calcular_imprimir_promedio_altura(lista_personajes)
+#             case 10:
+#                 print(calcular_promedio(lista_personajes, "peso"))
+#             case 11:
+#                 print(calcular_promedio(lista_personajes, "fuerza"))
+#             case 12:
+#                 confirmacion = input("Esta seguro? s/otra tecla: ")
+#                 if confirmacion == "s":
+#                     break
+#                 else: 
+#                     pass
+#             case _:
+#                 print("Opcion incorrecta, vuelve a ingresar el dato: ")
+#         os.system("pause")
